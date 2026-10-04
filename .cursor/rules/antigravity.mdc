@@ -1,0 +1,16 @@
+---
+description: Delegate second opinions, architectural planning, or parallel coding tasks to the Google Antigravity MCP sub-agent.
+globs: 
+alwaysApply: false
+---
+
+# Google Antigravity Sub-Agent Integration
+
+When the user asks for a second opinion, cross-model verification, architectural plan, or delegates a task to Antigravity / Gemini:
+
+1. Call the `antigravity_task` MCP tool (`mcp__antigravity__antigravity_task`).
+2. Pass `cwd` set to the workspace root, and choose:
+   - `mode="read-only"` + `effort="high"` (`gemini-3.1-pro-high`) for deep code reviews and bug hunting
+   - `mode="plan"` (`gemini-3.1-pro-high`) for architecture and implementation planning
+   - `mode="accept-edits"` (`gemini-3.8-flash-high`) for fast file edits and test generation
+3. Reuse the returned `conversation_id` for any multi-turn follow-ups.

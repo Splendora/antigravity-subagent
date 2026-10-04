@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "antigravity-subagent"
+version = "0.2.0"
+description = "Universal Google Antigravity Sub-Agent (MCP Server + CLI Runner + Multi-Agent Installer) for Claude Code, OpenAI Codex, Cursor, and Windsurf."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "mcp>=1.2.0",
+    "google-antigravity>=0.1.0",
+]
+
+[project.scripts]
+antigravity-mcp = "agy_mcp_server:main"
+antigravity-subagent = "agy_subagent_cli:main"
+
+[tool.setuptools]
+py-modules = ["agy_mcp_server", "agy_subagent_cli"]
